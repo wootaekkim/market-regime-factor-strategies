@@ -12,7 +12,7 @@ All results summarized here are out-of-sample (OOS), 2017-01-31 → 2024-12-31.
 
 ---
 
-## 📊 Side-by-Side Summary
+## Side-by-Side Summary
 
 | Variant | Modeling Idea | Factor Choice | CAGR | Volatility | Sharpe | Sortino | MaxDD | IC Mean | IC IR |
 |--------|---------------|---------------|------|------------|--------|---------|-------|---------|-------|
@@ -26,7 +26,7 @@ Additional reported metrics:
 
 ---
 
-## 📈 Performance Charts
+## Performance Charts
 
 *(replace these with the actual PNGs from `/charts/` once committed)*
 
@@ -41,7 +41,7 @@ Additional reported metrics:
 
 ---
 
-## 🔍 What the numbers say
+## What the numbers say
 
 ### 1) Strategy 1 (Premia, Same Factors) is the clear winner
 - **Best risk-adjusted outcome:** Highest Sharpe (0.86), **lowest drawdown** (−20%), and **highest CAGR** (~17.7%).  
@@ -55,7 +55,7 @@ Additional reported metrics:
 
 ---
 
-## 🤔 Why we tried OLS for Strategy 2
+## Why we tried OLS for Strategy 2
 
 - **Hypothesis:** Ridge+CV with few regime-specific observations may **overfit**, inflating IC without monetization.  
 - **Test:** Replace Ridge with **plain OLS**, keep all else the same.  
@@ -64,7 +64,7 @@ Additional reported metrics:
 
 ---
 
-## 🧩 Role of the HMM
+## Role of the HMM
 
 - **More observables → higher IC.** Richer HMM state definitions improve regime detection.  
 - **But different factors per regime = unstable PnL.** Switching factor sets with regime transitions increases **risk exposure variance**, leading to deeper drawdowns.  
@@ -72,7 +72,7 @@ Additional reported metrics:
 
 ---
 
-## ✅ Conclusion
+## Conclusion
 
 - **Strategy 1 (Same Factors, Premia Vary)** is the most robust: highest Sharpe, best CAGR, and shallowest drawdowns.  
 - **Strategy 2 (Factor Choice)** demonstrates that **higher IC ≠ higher returns** when regime transitions disrupt portfolio exposures.  
@@ -80,7 +80,7 @@ Additional reported metrics:
 
 ---
 
-## 🚀 Future Work
+## Future Work
 
 1. **HMM Enhancements**  
    - More observables, more states, and **soft regime probabilities** to smooth routing.  
