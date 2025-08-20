@@ -11,7 +11,7 @@ We design and compare two distinct approaches to modeling factor returns across 
 
 Both strategies share the same **data foundation**:
 
-- **Universe**: S&P 500 constituents (2010–present).  
+- **Universe**: S&P 500 constituents (2000–present).  
 - **Features**: Fundamental + market-based factors (e.g., valuation, profitability, growth, momentum, volatility, liquidity).  
 - **Processing**:
   - Monthly cross-sectional panel.
