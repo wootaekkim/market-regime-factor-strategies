@@ -1,13 +1,13 @@
 # market-regime-factor-strategies
 Regime-switching factor strategies with HMM: fixed vs regime-dependent factor sets
-# 📘 HMM Regime Factor Strategies
+# HMM Regime Factor Strategies
 
 This repository explores **regime-specific factor investing strategies** using **Hidden Markov Models (HMMs)** for market regime detection.  
 We design and compare two distinct approaches to modeling factor returns across regimes.
 
 ---
 
-## 🔹 Data Collection & Feature Engineering
+## Data Collection & Feature Engineering
 
 Both strategies share the same **data foundation**:
 
@@ -24,7 +24,7 @@ Both strategies share the same **data foundation**:
 
 ---
 
-## ⚙️ Strategy 1: Regime-Specific **Premia Model** (Same Factors)
+## Strategy 1: Regime-Specific **Premia Model** (Same Factors)
 
 This strategy assumes that the **same factor set drives returns**, but **their premia (coefficients)** vary by regime.  
 
@@ -51,7 +51,7 @@ This strategy assumes that the **same factor set drives returns**, but **their p
 
 ---
 
-## ⚙️ Strategy 2: Regime-Specific **Factor Choice Model**
+## Strategy 2: Regime-Specific **Factor Choice Model**
 
 This strategy assumes that **different factors matter in different regimes**.  
 Rather than keeping the same set, the model **selects which factors to use** in each regime.  
@@ -77,7 +77,7 @@ Rather than keeping the same set, the model **selects which factors to use** in 
 
 ---
 
-## 🆚 Key Difference Between the Two
+## Key Difference Between the Two
 
 | Aspect | Strategy 1: Regime-Specific Premia | Strategy 2: Regime-Specific Factor Choice |
 |--------|------------------------------------|-------------------------------------------|
@@ -88,7 +88,7 @@ Rather than keeping the same set, the model **selects which factors to use** in 
 
 ---
 
-## 🚀 Next Step
+## Next Step
 Performance comparisons for these two strategies are documented in a **separate Results & Insights README** (see `/analysis/README.md`).  
 
 ---
