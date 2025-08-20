@@ -33,9 +33,7 @@ This strategy assumes that the **same factor set drives returns**, but **their p
    - Market classified into discrete regimes (e.g., bull, bear, high vol).  
 2. **Factor Model (OLS)**  
    - For each regime, fit an **OLS cross-sectional regression**:  
-     \[
-     r_{i,t+1} = \beta^{(regime)} X_{i,t} + \epsilon_{i,t}
-     \]  
+     r_{i,t+1} = \beta^{(regime)} X_{i,t} + \epsilon_{i,t}  
    - Factors = fixed set across regimes (value, quality, momentum, risk, etc.).  
 3. **Score Construction**  
    - Predicted returns = regime-specific factor exposures × fixed factors.  
