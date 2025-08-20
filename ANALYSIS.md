@@ -26,21 +26,6 @@ Additional reported metrics:
 
 ---
 
-## Performance Charts
-
-*(replace these with the actual PNGs from `/charts/` once committed)*
-
-- **Cumulative Returns**  
-  ![Cumulative Returns](/cumulative_returns.png)
-
-- **Rolling Sharpe (36m)**  
-  ![Rolling Sharpe](/rolling_sharpe.png)
-
-- **Monthly Rank-IC**  
-  ![Monthly IC](/monthly_ic.png)
-
----
-
 ## What the numbers say
 
 ### 1) Strategy 1 (Premia, Same Factors) is the clear winner
@@ -82,20 +67,42 @@ Additional reported metrics:
 
 ## Future Work
 
-1. **HMM Enhancements**  
-   - More observables, more states, and **soft regime probabilities** to smooth routing.  
+The experiments highlight a core tension:
 
-2. **Stable Factor Architecture**  
-   - Fixed core set + small regime-dependent tweaks.  
-   - Try **hierarchical shrinkage** rather than binary inclusion/exclusion.  
+- **HMM richness vs. portfolio stability.**
+Using more observables in the HMM does improve predictive IC by producing sharper regime distinctions.
+However, when coupled with **different factor sets per regime**, this adds instability: portfolios rotate into entirely different exposures whenever the regime switches.
+This variance translates into **higher drawdowns and lower monetization**, even when raw IC improves.
 
-3. **Portfolio Overlays**  
-   - Beta targeting, hedging, turnover constraints, and liquidity guards.  
+- **Factor choice vs. premia stability.**
+Strategy 1, with a **fixed factor architecture** and regime-dependent premia, showed that stability in factor exposures is more valuable than maximizing IC at the cross-sectional level.
+Strategy 2, despite stronger IC (Ridge version), suffered because the factor set itself was unstable across regimes, amplifying unintended risks.
 
-4. **Robustness Checks**  
-   - Subperiod performance, sector-neutral variants, transaction cost stress tests.  
+### Directions forward
+
+1. **Richer HMM, but stable factor base.**
+- Increase observables to refine regime detection, but constrain the signal to a **common factor core**.
+- Allow premia to vary with regimes, but keep exposures interpretable and robust.
+
+2. **IC-to-PnL translation.**
+- Design strategies where **higher IC is not the only goal** — instead, ensure that predictive strength translates into stable portfolio returns.
+- This may require constraints on factor switching, portfolio beta controls, or explicit variance penalties.
+
+3. **Regime soft-routing.**
+- Instead of hard-switching factor models by regime label, use **probabilistic weighting** from the HMM.
+- This would smooth transitions, reducing the “factor whiplash” effect.
+
+4. **Portfolio-level stabilizers.**
+- Beta targeting, hedging overlays, and turnover guards should be considered secondary defenses against regime-switch volatility.
 
 ---
 
-**Takeaway:** Stability > flexibility.  
-The path forward is a **same-factor, premia-varying regime model with richer HMM states** — maximizing predictive IC while keeping exposures robust.  
+## Takeaway
+
+The critical insight from this study is that **raw predictive IC does not guarantee monetizable returns**.
+- Strategy 2 demonstrated that higher IC (especially under Ridge) came at the cost of unstable exposures and deeper drawdowns.
+- Strategy 1 showed that **stable factor architecture with regime-varying premia** is a superior bias–variance tradeoff: lower IC on paper, but consistently higher Sharpe and shallower drawdowns in practice.
+- The OLS variant confirmed that the **estimation method was not the problem** — the instability was structural, rooted in regime-specific factor choice.
+
+**Therefore:**
+**same-factor, premia-varying regime model** set up seemed to be most profitable, potentially enhanced with a **richer HMM (more observables, more nuanced regimes)**. This combines the predictive benefit of improved regime identification with the portfolio stability of fixed factor exposures — closing the gap between IC and realized returns.
