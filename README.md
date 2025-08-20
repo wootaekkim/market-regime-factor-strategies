@@ -87,6 +87,6 @@ Rather than keeping the same set, the model **selects which factors to use** in 
 ---
 
 ## Next Step
-Performance comparisons for these two strategies are documented in a **separate Results & Insights README** (see `/analysis/README.md`).  
+Performance comparisons for these two strategies are documented in a **separate Results & Insights README** (see `/Analysis.md`).  
 
 ---
